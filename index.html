@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+	<title>GradeCalc</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<!-- These 2 lines make us fullscreen on apple mobile products - remove if you don't like that -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />	
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/web-font/stylesheet.css" rel="stylesheet">
+
+</head>
+<body>
+<noscript>
+ For full functionality of this site it is necessary to enable JavaScript.
+ Here are the <a href="http://www.enable-javascript.com/" target="_blank">
+ instructions how to enable JavaScript in your web browser</a>.
+</noscript>
+
+	<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="index.php">등급 계산기</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+        </ul>
+        <span class="my-2 my-lg-0" style="color:#FFF">
+		</span>
+      </div>
+    </nav>
+
+
+		<script>
+			function getgrade()
+			{
+			var rank = document.getElementById('rank').value;
+			var total = document.getElementById('total').value;
+
+			var rank1_cut = total * 0.04
+			var rank2_cut = total * 0.11
+			var rank3_cut = total * 0.23
+			var rank4_cut = total * 0.40
+			var rank5_cut = total * 0.60
+			var rank6_cut = total * 0.77
+			var rank7_cut = total * 0.89
+			var rank8_cut = total * 0.96
+			
+			if((0 < rank) && (rank < rank1_cut))
+			{
+				$('#grade').html("1등급");
+			}
+			if((rank1_cut <= rank) && (rank < rank2_cut))
+			{
+				$('#grade').html("2등급");
+			}
+			if((rank2_cut <= rank) && (rank < rank3_cut))
+			{
+				$('#grade').html("3등급");
+			}
+			if((rank3_cut <= rank) && (rank < rank4_cut))
+			{
+				$('#grade').html("4등급");
+			}
+			if((rank4_cut <= rank) && (rank < rank5_cut))
+			{
+				$('#grade').html("5등급");
+			}
+			if((rank5_cut <= rank) && (rank < rank6_cut))
+			{
+				$('#grade').html("6등급");
+			}
+			if((rank6_cut <= rank) && (rank < rank7_cut))
+			{
+				$('#grade').html("7등급");
+			}
+			if((rank7_cut <= rank) && (rank < rank8_cut))
+			{
+				$('#grade').html("8등급");
+			}
+			if((rank8_cut <= rank) && (rank <= total))
+			{
+				$('#grade').html("9등급");
+			}
+		}
+		</script>
+
+	<div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-12">
+        	<br><br><br>
+        	<h2>등급 계산기</h2>
+		<label>자신의 석차를 여기에 적어주세요</label><br>
+		<input type="number" id="rank"></input><br>
+		<label>전교생수를 여기에 적어주세요</label><br>
+		<input type="number" id="total"></input><br>
+		
+		<span id="grade" style="font-size: 30pt">0등급</span><br>
+		<button class="secondary button" onclick="getgrade();">등급 계산</button><br>
+
+	</div>
+</div>
+</div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
